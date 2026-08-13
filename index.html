@@ -323,11 +323,11 @@
                                     <h4 class="text-white">Breakfast</h4>
                                 </div>
 
-                                <div class="menu-block" data-name="Pancakes" data-price="12.55">
+                                <div class="menu-block" data-name="Pancakes" data-price="1650">
                                     <div class="d-flex">
                                         <h6>Pancakes</h6>
                                         <span class="underline"></span>
-                                        <strong class="ms-auto">$12.55</strong>
+                                        <strong class="ms-auto">KES 1,650</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Fresh brewed coffee and steamed milk</small>
@@ -339,12 +339,12 @@
                                     </div>
                                 </div>
 
-                                <div class="menu-block my-4" data-name="Toasted Waffle" data-price="12.00">
+                                <div class="menu-block my-4" data-name="Toasted Waffle" data-price="1550">
                                     <div class="d-flex">
                                         <h6>Toasted Waffle</h6>
                                         <span class="underline"></span>
-                                        <strong class="text-white ms-auto"><del>$16.50</del></strong>
-                                        <strong class="ms-2">$12.00</strong>
+                                        <strong class="text-white ms-auto"><del>KES 2,150</del></strong>
+                                        <strong class="ms-2">KES 1,550</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Brewed coffee and steamed milk</small>
@@ -356,11 +356,11 @@
                                     </div>
                                 </div>
 
-                                <div class="menu-block" data-name="Fried Chips" data-price="15.00">
+                                <div class="menu-block" data-name="Fried Chips" data-price="1950">
                                     <div class="d-flex">
                                         <h6>Fried Chips <span class="badge ms-3">Recommend</span></h6>
                                         <span class="underline"></span>
-                                        <strong class="ms-auto">$15.00</strong>
+                                        <strong class="ms-auto">KES 1,950</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Rich Milk and Foam</small>
@@ -381,12 +381,12 @@
                                     <h4 class="text-white">Coffee</h4>
                                 </div>
 
-                                <div class="menu-block" data-name="Latte" data-price="7.50">
+                                <div class="menu-block" data-name="Latte" data-price="980">
                                     <div class="d-flex">
                                         <h6>Latte</h6>
                                         <span class="underline"></span>
-                                        <strong class="text-white ms-auto"><del>$12.50</del></strong>
-                                        <strong class="ms-2">$7.50</strong>
+                                        <strong class="text-white ms-auto"><del>KES 1,650</del></strong>
+                                        <strong class="ms-2">KES 980</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Fresh brewed coffee and steamed milk</small>
@@ -398,11 +398,11 @@
                                     </div>
                                 </div>
 
-                                <div class="menu-block my-4" data-name="White Coffee" data-price="5.90">
+                                <div class="menu-block my-4" data-name="White Coffee" data-price="780">
                                     <div class="d-flex">
                                         <h6>White Coffee <span class="badge ms-3">Recommend</span></h6>
                                         <span class="underline"></span>
-                                        <strong class="ms-auto">$5.90</strong>
+                                        <strong class="ms-auto">KES 780</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Brewed coffee and steamed milk</small>
@@ -414,11 +414,11 @@
                                     </div>
                                 </div>
 
-                                <div class="menu-block" data-name="Chocolate Milk" data-price="5.50">
+                                <div class="menu-block" data-name="Chocolate Milk" data-price="720">
                                     <div class="d-flex">
                                         <h6>Chocolate Milk</h6>
                                         <span class="underline"></span>
-                                        <strong class="ms-auto">$5.50</strong>
+                                        <strong class="ms-auto">KES 720</strong>
                                     </div>
                                     <div class="border-top mt-2 pt-2 d-flex justify-content-between align-items-center">
                                         <small>Rich Milk and Foam</small>
@@ -578,7 +578,7 @@
         <div class="restaurant-sticky-bar" id="restaurantStickyBar">
             <div>
                 <span id="stickyItemsCount">0</span> items selected | 
-                <strong id="stickyTotalAmount">$0.00</strong>
+                <strong id="stickyTotalAmount">KES 0</strong>
             </div>
             <button class="restaurant-review-btn" onclick="openReviewModal()">Review Order</button>
         </div>
@@ -637,7 +637,7 @@
                 }
 
                 document.getElementById('stickyItemsCount').innerText = totalItems;
-                document.getElementById('stickyTotalAmount').innerText = '$' + totalPrice.toFixed(2);
+                document.getElementById('stickyTotalAmount').innerText = 'KES ' + totalPrice.toLocaleString();
 
                 let bar = document.getElementById('restaurantStickyBar');
                 if (totalItems > 0) {
@@ -654,7 +654,7 @@
                 for (let item in cart) {
                     let itemTotal = cart[item].price * cart[item].qty;
                     totalPrice += itemTotal;
-                    summaryHTML += `<div>${cart[item].qty}x ${item} - $${itemTotal.toFixed(2)}</div>`;
+                    summaryHTML += `<div>${cart[item].qty}x ${item} - KES ${itemTotal.toLocaleString()}</div>`;
                 }
 
                 if (totalPrice === 0) {
@@ -662,7 +662,7 @@
                     return;
                 }
 
-                summaryHTML += `<hr style="border-color:#444"><strong>Total Payment: $${totalPrice.toFixed(2)}</strong>`;
+                summaryHTML += `<hr style="border-color:#444"><strong>Total Payment: KES ${totalPrice.toLocaleString()}</strong>`;
                 document.getElementById('modalOrderSummary').innerHTML = summaryHTML;
                 document.getElementById('orderModal').style.display = 'flex';
             }
@@ -686,10 +686,10 @@
                 for (let item in cart) {
                     let itemTotal = cart[item].price * cart[item].qty;
                     totalPrice += itemTotal;
-                    message += `- ${cart[item].qty}x ${item} ($${itemTotal.toFixed(2)})%0A`;
+                    message += `- ${cart[item].qty}x ${item} (KES ${itemTotal.toLocaleString()})%0A`;
                 }
 
-                message += `%0A*Total Payment: $${totalPrice.toFixed(2)}*`;
+                message += `%0A*Total Payment: KES ${totalPrice.toLocaleString()}*`;
 
                 let phoneNumber = "447749452288"; // Replace with actual WhatsApp phone number including country code
                 let whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
